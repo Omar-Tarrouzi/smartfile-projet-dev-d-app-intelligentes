@@ -1,0 +1,18 @@
+[project]
+name = "smartfiles"
+version = "0.1.0"
+description = "Assistant local de gestion de stockage — fondations"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["Flask>=3.1,<4", "python-dotenv>=1.0,<2", "waitress>=3,<4"]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "ruff>=0.9,<1"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100

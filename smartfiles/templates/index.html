@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SmartFiles · Votre espace, plus clair</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script src="{{ url_for('static', filename='app.js') }}" defer></script></head>
+<body><main><header><a class="brand" href="/">▦ SmartFiles</a><span class="badge">LOCAL · LECTURE SEULE</span></header>
+<section class="hero"><p class="eyebrow">UN PEU D'ORDRE, BEAUCOUP DE CLARTÉ</p>
+<h1>Faites le point sur<br>vos fichiers.</h1><p>Explorez un dossier et comprenez ce qui occupe votre espace.</p></section>
+<div class="layout"><section class="panel"><h2>01 / Analyser un dossier</h2>
+<form id="scan-form"><label for="path">Chemin absolu du dossier</label>
+<input id="path" name="path" required value="{{ roots[0] }}" spellcheck="false">
+<button id="scan-button" type="submit">Analyser le dossier →</button></form>
+<p class="muted">Racines autorisées :</p><ul>{% for root in roots %}<li><code>{{ root }}</code></li>{% endfor %}</ul>
+<p id="status" role="status" aria-live="polite">Prêt. Aucun fichier ne sera modifié.</p>
+<div class="stats"><article><strong id="count">—</strong><span>fichiers</span></article><article><strong id="size">—</strong><span>volume analysé</span></article></div>
+<div id="categories"></div></section>
+<aside class="panel assistant"><p class="eyebrow">LA SUITE DU PROJET</p><h2>Votre futur assistant IA</h2>
+<p>Des recommandations pour nettoyer, trier et renommer vos fichiers, avec votre validation à chaque étape.</p>
+<ol><li class="active">Analyse des métadonnées · disponible</li><li>Conversation Groq / Ollama · phase 2</li><li>Actions et corbeille · phase 3</li><li>Historique et annulation · phase 4</li></ol>
+<p class="muted">Cette version fonctionne sans clé API et sans envoi de données à un service IA.</p></aside></div>
+<section class="panel listing"><h2>02 / Inventaire</h2><div class="table-wrap"><table><thead><tr><th>Fichier</th><th>Catégorie</th><th>Taille</th><th>Modification (UTC)</th></tr></thead><tbody id="files"><tr><td colspan="4">Lancez une analyse pour afficher vos fichiers.</td></tr></tbody></table></div></section>
+<footer>SmartFiles 0.1 · Projet 5IAD G1 · Analyse locale, contrôle humain.</footer></main></body></html>
