@@ -1,0 +1,10 @@
+services:
+  smartfiles:
+    build: .
+    ports: ["127.0.0.1:5000:5000"]
+    environment:
+      SMARTFILES_ALLOWED_ROOTS: '["/data"]'
+    volumes:
+      - ./demo:/data:ro
+    read_only: true
+    tmpfs: [/tmp]
